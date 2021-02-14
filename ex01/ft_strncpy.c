@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 20:56:56 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/13 23:05:29 by tonted           ###   ########.fr       */
+/*   Updated: 2021/02/14 14:33:00 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,20 @@ int ft_strlen(char *str)
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	int i;
-	int diff;
+	
+	printf("size = %d\n", n);
 
 	i = -1;
-	diff = ft_strlen(src) - ft_strlen(dest);
-	if (diff < 0) // dest > src
-	{
-		while(++i < n)
-			dest[i] = src[i];
-		// while(dest[i] != '\0')
-		// 	dest[i++] = '\0';
-	}
-	else // dest < src
-		while (dest[++i] != '\0')
-			dest[i] = src[i];
+	while (++i < n && src[i] != '\0')
+		dest[i] = src[i];
+	while (i < n)
+		dest[i++] = '\0';
 	return (dest);
 }
 
 int 	main(void)
 {
-	char src[] = "Ecokmadakncas;ldma";
+	char src[] = "Eco";
 	char dest[] = "Schoollll";
 
 	printf("src = %s // dest = %s\n", src, dest);
