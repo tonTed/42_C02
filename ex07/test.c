@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:13:42 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/14 11:21:30 by tblanco          ###   ########.fr       */
+/*   Updated: 2021/02/14 12:03:03 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include <string.h>
 #include <stdio.h>
-
+#include <unistd.h>
 
 char	*ft_strupcase(char *str)
 {
@@ -50,6 +50,8 @@ int		main(void)
 	printf("%s\n", string3);
 	printf("%s\n", string4);
 	printf("%s\n", string5);
+
+	write(1, string1, sizeof(string1));
 
 	return 0;
 }
