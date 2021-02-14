@@ -6,13 +6,13 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:22:18 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/14 16:38:58 by tblanco          ###   ########.fr       */
+/*   Updated: 2021/02/14 16:40:36 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Écrire une fonction qui met en majuscule la première lettre de chaque mot et le
-** reste du mot en minuscule.
+** Écrire une fonction qui met en majuscule la première lettre de chaque mot et 
+** le reste du mot en minuscule.
 ** Un mot est une suite de caractères alphanumériques.
 ** 
 ** Elle devra renvoyer str.
@@ -48,17 +48,15 @@ char	*ft_strcapitalize(char *str)
 			if(start_word == 1 && str[i] >= 'a' && str[i] <= 'z')
 			{
 				str[i] -= 32;
-				start_word--;
+				start_word = 0;
 			}
 			else if (start_word != 1 && str[i] >= 'A' && str[i] <= 'Z')
 				str[i] += 32;
 			else
-				start_word--;
+				start_word = 0;
 		}
 		else
-		{
 			start_word = 1;
-		}
 	}
 	return (str);
 }
