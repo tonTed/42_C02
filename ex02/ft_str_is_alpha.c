@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 20:58:49 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/13 21:01:47 by tonted           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:04:55 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,22 @@
 
 int		ft_str_is_alpha(char *str)
 {
+	int i;
 
+	i = -1;
+	while(str[++i] != '\0')
+		if (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')))
+			return (0);
+	return (1);
 }
 
 int		main(void)
 {
+	printf("%d\n", ft_str_is_alpha("dalGskm"));
+	printf("%d\n", ft_str_is_alpha("dalGa931-skm"));
+	printf("%d\n", ft_str_is_alpha("AalGskmz"));
+	printf("%d\n", ft_str_is_alpha("dalG@#4skm"));
+	printf("%d\n", ft_str_is_alpha("zalGsk@mA"));
+	printf("%d\n", ft_str_is_alpha(""));
 	return 0;
 }
