@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:11:39 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/13 21:14:46 by tonted           ###   ########.fr       */
+/*   Updated: 2021/02/14 10:29:57 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@
 
 int	ft_str_is_printable(char *str)
 {
+	int i;
 
+	i = -1;
+	while(str[++i] != '\0')
+		if (!(str[i] >= 32 && str[i] <= 127))
+			return (0);
+	return (1);
 }
 
 int		main(void)
