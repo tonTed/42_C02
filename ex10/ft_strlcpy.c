@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:25:53 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/15 17:29:13 by tblanco          ###   ########.fr       */
+/*   Updated: 2021/02/15 17:59:29 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 ** Reproduire à l’identique le fonctionnement de la fonction strlcpy
 ** (man strlcpy).
 */
+#include <string.h>
 
 int				ft_strlen(char *str)
 {
@@ -41,3 +42,13 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	dest[--i] = '\0';
 	return (len_src);
 }
+
+int main()
+{
+	char dest[] = "Halleofasdasfasfasdasfgasggasfasdasdasdasdasd";
+	char src[] = ";lmd;a";
+	
+	strlcpy(dest, src, 20);
+	return 0;
+}
+
