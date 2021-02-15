@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 20:58:49 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/15 15:41:53 by tblanco          ###   ########.fr       */
+/*   Updated: 2021/02/15 17:25:38 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	ft_str_is_alpha(char *str)
 	i = -1;
 	while (p[++i] != '\0')
 		if (!((p[i] >= 'a' && p[i] <= 'z') || (p[i] >= 'A' && p[i] <= 'Z')))
-			return (0);
-	return (1);
+			return (1);
+	return (0);
 }
