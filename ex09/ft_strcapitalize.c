@@ -6,13 +6,20 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:22:18 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/14 16:55:03 by tblanco          ###   ########.fr       */
+/*   Updated: 2021/02/15 17:43:17 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		is_alpha(char *c)
 {
 	if ((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z'))
+		return (1);
+	return (0);
+}
+
+int		is_numeric(char *c)
+{
+	if ((*c >= '0' && *c <= '9'))
 		return (1);
 	return (0);
 }
@@ -38,6 +45,8 @@ char	*ft_strcapitalize(char *str)
 			else
 				start_word = 0;
 		}
+		else if (is_numeric(&str[i]))
+			start_word = 0;
 		else
 			start_word = 1;
 	}
