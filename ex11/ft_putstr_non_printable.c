@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:27:41 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/16 14:53:10 by tblanco          ###   ########.fr       */
+/*   Updated: 2021/02/16 15:00:12 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@
 ** La fonction devra afficher :
 ** 		Coucou\0atu vas bien ?
 */
-
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <ctype.h>
 
 void	ft_putchar(char c)
 {
@@ -44,7 +39,6 @@ void	to_hex(int decimal)
 	}
 	else
 		ft_putchar(hex[decimal]);
-		
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -52,22 +46,14 @@ void	ft_putstr_non_printable(char *str)
 	int i;
 
 	i = -1;
-	while(str[++i])
-		if(str[i] >= 0 && str[i] <= 31 || str[i] == 127)
-		{	
+	while (str[++i])
+		if (str[i] >= 0 && str[i] <= 31 || str[i] == 127)
+		{
 			ft_putchar('\\');
-			if(str[i] <= 16)
+			if (str[i] <= 16)
 				ft_putchar('0');
 			to_hex(str[i]);
 		}
 		else
 			ft_putchar(str[i]);
 }
-
-int main()
-{	
-	char string[] = "Coucou\ntu va\rs bien ?";
-	ft_putstr_non_printable(string);
-	return 0;
-}
-
