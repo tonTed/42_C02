@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 21:27:41 by tonted            #+#    #+#             */
-/*   Updated: 2021/02/15 22:22:03 by tonted           ###   ########.fr       */
+/*   Updated: 2021/02/16 14:53:10 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,18 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	to_hex(int dec)
+void	to_hex(int decimal)
 {
 	char *hex;
 
 	hex = "0123456789abcdef";
-	if (dec <= 16)
+	if (decimal > 16)
 	{
-		ft_putchar('0');
-	}
-	if (dec > 16)
-	{
-		to_hex(dec / 16);
-		to_hex(dec % 16);
+		to_hex(decimal / 16);
+		to_hex(decimal % 16);
 	}
 	else
-		ft_putchar(hex[dec]);
+		ft_putchar(hex[decimal]);
 		
 }
 
@@ -60,6 +56,8 @@ void	ft_putstr_non_printable(char *str)
 		if(str[i] >= 0 && str[i] <= 31 || str[i] == 127)
 		{	
 			ft_putchar('\\');
+			if(str[i] <= 16)
+				ft_putchar('0');
 			to_hex(str[i]);
 		}
 		else
@@ -68,21 +66,8 @@ void	ft_putstr_non_printable(char *str)
 
 int main()
 {	
-	char string[] = "Coucou\ntu vas bien ?";
+	char string[] = "Coucou\ntu va\rs bien ?";
 	ft_putstr_non_printable(string);
-	
-	for(int i = 0; i < 32; i++)
-	{
-		to_hex(i);
-		ft_putchar('\n');
-	}
-
-	
-	
-	
-	// int i = -1;
-	// while(++i <= 127)
-	// 	printf("i = %d >> %d\n", i, isprint(i));
 	return 0;
 }
 
